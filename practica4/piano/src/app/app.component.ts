@@ -1,41 +1,33 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'], // Note: styleUrls is the correct property name
+  standalone: true, // Marking the component as standalone
 })
 export class AppComponent {
   title = 'piano';
+
   aplicarSonido(numero: number) {
     let audio = new Audio();
     switch (numero) {
-      case 1:
-        audio.src = "assets/sonidos/1.mp3";
+      case   1:
+        audio.src = "assets/audio/1.mp3";
         break;
-      case 2:
-        audio.src = "assets/sonidos/re.wav";
+      case  2:
+        audio.src = "assets/audio/2.mp3";
         break;
-      case 3:
-        audio.src = "assets/sonidos/mi.wav";
+      case  3:
+        audio.src = "assets/audio/3.mp3";
         break;
-      case 4:
-        audio.src = "assets/sonidos/fa.wav";
+      case  4:
+        audio.src = "assets/audio/4.mp3";
         break;
-      case 5:
-        audio.src = "assets/sonidos/sol.wav";
-        break;
-      case 6:
-        audio.src = "assets/sonidos/la.wav";
-        break;
-      case 7:
-        audio.src = "assets/sonidos/si.wav";
-        break;
+      // Add cases for other numbers as needed
       default:
         break;
     }
+    audio.play(); // Ensure to play the audio after setting the source
   }
 }
